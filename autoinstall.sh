@@ -25,7 +25,6 @@ installvim() {
 
         #Elimina los archivos
         rm -rf mi-vim-config.tar.gz
-        rm -- "$0"
 }
 
 
