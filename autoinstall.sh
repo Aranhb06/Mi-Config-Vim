@@ -17,10 +17,14 @@ installvim() {
         sudo apt install -y nodejs && echo "OK"
                 
         #Descomprime el archivo con las configuraciones
-        tar -xzvf mi-vim-config.tar.gz && echo "OK"
+        tar -xzvf ~/mi-vim-config.tar.gz && echo "OK"
 
-        #inicia la instalacion de los plugins con vimplug
+        #Inicia la instalacion de los plugins con vimplug
         vim +PlugInstall +qall
+
+        #Elimina los archivos
+        rm -rf ~/mi-vim-config.tar.gz
+        rm -- "$0"
 }
 
 
