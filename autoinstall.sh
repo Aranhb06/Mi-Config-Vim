@@ -9,21 +9,22 @@ installvim() {
         # Instalacion de vim   
         sudo apt install vim $$ echo "OK"
 
+        #Descarga y descomprime el archivo con las configuraciones
+        curl -o mi-vim-config.tar.gz https://github.com/Aranhb06/Mi-Config-Vim/raw/main/mi-vim-config.tar.gz
+        tar -xzvf mi-vim-config.tar.gz -C ~ && echo "OK"
+
         # Instalacion de vimplug
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
         # Instalacion de node.js para coc.plug 
         curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
         sudo apt install -y nodejs && echo "OK"
-                
-        #Descomprime el archivo con las configuraciones
-        tar -xzvf ~/mi-vim-config.tar.gz && echo "OK"
 
         #Inicia la instalacion de los plugins con vimplug
         vim +PlugInstall +qall
 
         #Elimina los archivos
-        rm -rf ~/mi-vim-config.tar.gz
+        rm -rf mi-vim-config.tar.gz
         rm -- "$0"
 }
 
